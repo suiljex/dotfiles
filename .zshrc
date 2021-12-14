@@ -31,3 +31,4 @@ antigen theme risto
 # Tell Antigen that you're done.
 antigen apply
 
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
