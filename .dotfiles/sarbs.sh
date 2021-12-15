@@ -220,7 +220,7 @@ chsh -s /bin/zsh "$name" >/dev/null 2>&1
 sudo -u "$name" mkdir -p "/home/$name/.cache/zsh/"
 
 # Add directory for wallpapers
-sudo -u "$name" mkdir -p "/home/$name/.config/walpaper
+sudo -u "$name" mkdir -p "/home/$name/.config/walpaper"
 
 # dbus UUID must be generated for Artix runit.
 #dbus-uuidgen > /var/lib/dbus/machine-id
