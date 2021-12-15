@@ -68,4 +68,7 @@ A,siji-git,"just another font."
 ,git,"the fast distributed version control system."
 ,xorg-xinput,"small commandline tool to configure devices."
 ,xorg-xrandr,"primitive command line interface to RandR extension."
+,zsh-autosuggestions,"fish-like autosuggestions for zsh."
+,zsh-completions,"additional completion definitions for zsh."
+A,zsh-fast-syntax-highlighting-git,"provides syntax highlighting in the shell."
 
