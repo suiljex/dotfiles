@@ -29,6 +29,9 @@ try
 
 " Search
   Plug 'rking/ag.vim'
+  
+" Colors highlighting
+  Plug 'ap/vim-css-color'
 
 " Initialize plugin system
   call plug#end()
