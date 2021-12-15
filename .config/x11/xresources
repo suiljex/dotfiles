@@ -1,8 +1,8 @@
 !! URxvt Appearance
-URxvt.font: xft:Iosevka:style=Regular:size=10
-URxvt.boldFont: xft:Iosevka:style=Bold:size=10
-URxvt.italicFont: xft:Iosevka:style=Italic:size=10
-URxvt.boldItalicfont: xft:Iosevka:style=Bold Italic:size=10
+URxvt.font: xft:IBM Plex Mono:style=Regular:size=10
+URxvt.boldFont: xft:IBM Plex Mono:style=Bold:size=10
+URxvt.italicFont: xft:IBM Plex Mono:style=Italic:size=10
+URxvt.boldItalicfont: xft:IBM Plex Mono:style=Bold Italic:size=10
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -37,10 +37,10 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 !! Set a default font and font size as below:
 ! *.font: monospace:size=10
-*.font: xft:Iosevka:style=Regular:size=10
-*.boldFont: xft:Iosevka:style=Bold:size=10
-*.italicFont: xft:Iosevka:style=Italic:size=10
-*.boldItalicfont: xft:Iosevka:style=Bold Italic:size=10
+*.font: xft:IBM Plex Sans:style=Regular:size=10
+*.boldFont: xft:IBM Plex Sans:style=Bold:size=10
+*.italicFont: xft:IBM Plex Sans:style=Italic:size=10
+*.boldItalicfont: xft:IBM Plex Sans:style=Bold Italic:size=10
 
 !! Transparency (0-1):
 *.alpha: 0.8

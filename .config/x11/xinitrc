@@ -21,6 +21,7 @@ else
   . "$HOME/.xprofile"
 fi
 
+# Add RU keyboard layout
 setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 
 #exec dbus-launch --exit-with-x11 bspwm
