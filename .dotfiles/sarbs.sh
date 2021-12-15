@@ -138,11 +138,11 @@ installationloop() { \
 	done < /tmp/progs.csv ;}
 
 gitdf() {
-	/usr/bin/git --git-dir="/home/$name/.dotfiles/.gitdir" --work-tree="/home/$name/" $@
+	sudo -u "$name" /usr/bin/git --git-dir="/home/$name/.dotfiles/.gitdir" --work-tree="/home/$name/" $@
 	}
 
 getdotfiles() { #Downlaod dotfiles
-	git clone --bare "https://github.com/suiljex/dotfiles/" "/home/$name/.dotfiles/.gitdir"
+	sudo -u "$name" git clone --bare "https://github.com/suiljex/dotfiles/" "/home/$name/.dotfiles/.gitdir"
 
 	gitdf checkout --force
 	gitdf config status.showUntrackedFiles no
