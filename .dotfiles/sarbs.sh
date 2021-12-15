@@ -6,15 +6,12 @@
 ### OPTIONS AND VARIABLES ###
 
 while getopts ":a:r:b:p:h" o; do case "${o}" in
-	h) printf "Optional arguments for custom use:\\n -p: Dependencies and programs csv (local file or url)\\n  -a: AUR helper (must have pacman-like syntax)\\n  -h: Show this message\\n" && exit 1 ;;
-	#r) dotfilesrepo=${OPTARG} && git ls-remote "$dotfilesrepo" || exit 1 ;;
-	#b) repobranch=${OPTARG} ;;
+	h) printf "Optional arguments for custom use:\\n  -p: Dependencies and programs csv (local file or url)\\n  -a: AUR helper (must have pacman-like syntax)\\n  -h: Show this message\\n" && exit 1 ;;
 	p) progsfile=${OPTARG} ;;
 	a) aurhelper=${OPTARG} ;;
 	*) printf "Invalid option: -%s\\n" "$OPTARG" && exit 1 ;;
 esac done
 
-#[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
 [ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/suiljex/dotfiles/master/.dotfiles/progs.csv"
 [ -z "$aurhelper" ] && aurhelper="yay"
 [ -z "$repobranch" ] && repobranch="master"
@@ -57,9 +54,9 @@ preinstallmsg() { \
 adduserandpass() { \
 	# Adds user `$name` with password $pass1.
 	dialog --infobox "Adding user \"$name\"..." 4 50
-	useradd -m -g wheel -s /bin/zsh "$name" >/dev/null 2>&1 ||
-	usermod -a -G wheel "$name" && mkdir -p /home/"$name" && chown "$name":wheel /home/"$name"
-	export repodir="/home/$name/.local/src"; mkdir -p "$repodir"; chown -R "$name":wheel "$(dirname "$repodir")"
+	useradd -m -U -g wheel -s /bin/zsh "$name" >/dev/null 2>&1 ||
+	usermod -a -G wheel "$name" && mkdir -p /home/"$name" && chown "$name":"$name" /home/"$name"
+	export repodir="/home/$name/.local/src"; mkdir -p "$repodir"; chown -R "$name":"$name" "$(dirname "$repodir")"
 	echo "$name:$pass1" | chpasswd
 	unset pass1 pass2 ;}
 
@@ -212,15 +209,8 @@ manualinstall yay-bin || error "Failed to install AUR helper."
 # and all build dependencies are installed.
 installationloop
 
-#dialog --title "SARBS Installation" --infobox "Finally, installing \`libxft-bgra\` to enable color emoji in suckless software without crashes." 5 70
-#yes | sudo -u "$name" $aurhelper -S libxft-bgra-git >/dev/null 2>&1
-
 # Install the dotfiles in the user's home directory
 getdotfiles
-#rm -f "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
-
-# make git ignore deleted LICENSE & README.md files
-#git update-index --assume-unchanged "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
 
 # Most important command! Get rid of the beep!
 systembeepoff
@@ -236,21 +226,14 @@ sudo -u "$name" mkdir -p "/home/$name/.cache/zsh/"
 #echo "export \$(dbus-launch)" > /etc/profile.d/dbus.sh
 
 # Tap to click
-# [ ! -f /etc/X11/xorg.conf.d/40-libinput.conf ] && printf 'Section "InputClass"
-#         Identifier "libinput touchpad catchall"
-#         MatchIsTouchpad "on"
-#         MatchDevicePath "/dev/input/event*"
-#         Driver "libinput"
-# 	# Enable left mouse button by tapping
-# 	Option "Tapping" "on"
-# EndSection' > /etc/X11/xorg.conf.d/40-libinput.conf
-
-# Fix fluidsynth/pulseaudio issue.
-#grep -q "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" /etc/conf.d/fluidsynth ||
-#	echo "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" >> /etc/conf.d/fluidsynth
-
-# Start/restart PulseAudio.
-#pkill -15 -x 'pulseaudio'; sudo -u "$name" pulseaudio --start
+[ ! -f /etc/X11/xorg.conf.d/40-libinput.conf ] && printf 'Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+	# Enable left mouse button by tapping
+	Option "Tapping" "on"
+EndSection' > /etc/X11/xorg.conf.d/40-libinput.conf
 
 # This line, overwriting the `newperms` command above will allow the user to run
 # serveral important commands, `shutdown`, `reboot`, updating, etc. without a password.

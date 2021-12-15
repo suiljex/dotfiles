@@ -61,5 +61,7 @@ A,mutt-wizard-git,"is a light-weight terminal-based email system."
 ,ttf-ibm-plex,"just another font."
 A,siji-git,"just another font."
 ,curl,"http client."
-,zsh,"zoomer's shell"
+,zsh,"zoomer's shell."
+,xorg-xinput,"small commandline tool to configure devices."
+,xorg-xrandr,"primitive command line interface to RandR extension."
 
