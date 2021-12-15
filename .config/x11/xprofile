@@ -11,7 +11,10 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment t
 # Start composit manageer
 picom &
 # Set random wallperper
-feh --bg-fill --randomize ~/.config/wallpaper/*
+WALLPAPER_DIR="${HOME}/.config/wallpaper"
+feh --no-fehbg --bg-fill --randomize ${WALLPAPER_DIR}/*
+#betterlockscreen --update ${WALLPAPER_DIR}
+unset WALLPAPER_DIR
 
 autostart="mpd xcompmgr dunst unclutter pipewire"
 

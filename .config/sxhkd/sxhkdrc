@@ -140,4 +140,4 @@ XF86MonBrightnessUp
 
 # lock screen
 super + x
-	betterlockscreen -l
+	betterlockscreen --lock dimblur
