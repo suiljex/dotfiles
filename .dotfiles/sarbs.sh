@@ -18,7 +18,7 @@ esac done
 
 ### FUNCTIONS ###
 
-installpkg(){ pacman --noconfirm --needed -S "$1" >/dev/null 2>&1 ;}
+installpkg() { pacman --noconfirm --needed -S "$1" >/dev/null 2>&1 ;}
 
 error() { printf "%s\n" "$1" >&2; exit 1; }
 
@@ -54,7 +54,7 @@ preinstallmsg() { \
 adduserandpass() { \
 	# Adds user `$name` with password $pass1.
 	dialog --infobox "Adding user \"$name\"..." 4 50
-	useradd -m -U -g wheel -s /bin/zsh "$name" >/dev/null 2>&1 ||
+	useradd -m -U -G wheel -s /bin/zsh "$name" >/dev/null 2>&1 ||
 	usermod -a -G wheel "$name" && mkdir -p /home/"$name" && chown "$name":"$name" /home/"$name"
 	export repodir="/home/$name/.local/src"; mkdir -p "$repodir"; chown -R "$name":"$name" "$(dirname "$repodir")"
 	echo "$name:$pass1" | chpasswd

@@ -62,6 +62,7 @@ A,mutt-wizard-git,"is a light-weight terminal-based email system."
 A,siji-git,"just another font."
 ,curl,"http client."
 ,zsh,"zoomer's shell."
+,git,"the fast distributed version control system."
 ,xorg-xinput,"small commandline tool to configure devices."
 ,xorg-xrandr,"primitive command line interface to RandR extension."
 
