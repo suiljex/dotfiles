@@ -126,9 +126,9 @@ super + {Left,Down,Up,Right}
 
 # volume control
 super + {_,shift + }minus
-	pamixer --allow-boost -d {15, 3}
+	pamixer --allow-boost -d {3, 15}
 super + {_,shift + }equal
-	pamixer --allow-boost -i {15, 3}
+	pamixer --allow-boost -i {3, 15}
 super + shift + m
 	pamixer -t
 

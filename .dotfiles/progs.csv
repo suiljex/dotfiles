@@ -63,6 +63,7 @@ A,betterlockscreen,"allows you to lock your computer, and quickly unlock with yo
 ,noto-fonts-cjk,"font for our asian friends.
 ,noto-fonts-extra,"font for polybar."
 A,siji-git,"just another font."
+A,nerd-fonts-complete,"iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts."
 ,curl,"http client."
 ,zsh,"zoomer's shell."
 ,git,"the fast distributed version control system."
@@ -72,3 +73,4 @@ A,siji-git,"just another font."
 ,zsh-autosuggestions,"fish-like autosuggestions for zsh."
 ,zsh-completions,"additional completion definitions for zsh."
 A,zsh-fast-syntax-highlighting-git,"provides syntax highlighting in the shell."
+A,pulseaudio-control,"control PulseAudio from the polybar status bar."
