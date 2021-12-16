@@ -221,6 +221,7 @@ getdotfiles
 # Downlaod some files
 getfilefromnet "https://raw.githubusercontent.com/muennich/urxvt-perls/master/keyboard-select" "/home/$name/.config/urxvt/ext/keyboard-select"
 getfilefromnet "https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font" "/home/$name/.config/urxvt/ext/resize-font"
+getfilefromnet "https://live.staticflickr.com/4735/25480807728_ae85e23106_o.jpg" "/home/$name/.config/wallpaper/picture.jpg"
 
 # Most important command! Get rid of the beep!
 systembeepoff
