@@ -1,8 +1,6 @@
 # Enable colors and change prompt:
 autoload -U colors && colors  # Load colors
-PROMPT="%{$fg[green]%}%n@%m:%{$fg_bold[blue]%}%2~ "
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="›%{$reset_color%}"
+PROMPT="%{$fg[green]%}%n@%m:%{$fg_bold[blue]%}%2~ %{$reset_color%}%(!.#.$) "
 
 setopt autocd       # Automatically cd into typed directory.
 stty stop undef     # Disable ctrl-s to freeze terminal.
@@ -83,6 +81,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Load plugins; should be last.
 fpath=(/usr/share/zsh/site-functions $fpath)
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
