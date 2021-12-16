@@ -9,7 +9,7 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment t
 #remaps &        # run the remaps script, switching caps/esc and more; check it for more info
 
 # Start composit manageer
-picom &
+#picom &
 # Set random wallperper
 WALLPAPER_DIR="${HOME}/.config/wallpaper"
 feh --no-fehbg --bg-fill --randomize ${WALLPAPER_DIR}/*
@@ -17,7 +17,7 @@ feh --no-fehbg --bg-fill --randomize ${WALLPAPER_DIR}/*
 unset WALLPAPER_DIR
 
 #autostart="mpd xcompmgr dunst unclutter pipewire"
-autostart="mpd unclutter pipewire"
+autostart="mpd picom unclutter pipewire"
 
 for program in $autostart; do
   pidof -s "$program" || setsid -f "$program"
