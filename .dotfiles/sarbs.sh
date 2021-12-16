@@ -119,6 +119,11 @@ pipinstall() { \
 	yes | pip install "$1"
 	}
 
+getfilefromnet() { # Downloads $1 and places in $2
+	dialog --title "SARBS Installation" --infobox "Dowloading file $2" 5 70
+	sudo -u "$name" curl --create-dirs -L "$1" -o "$2" >/dev/null 2>&1
+	}
+
 installationloop() { \
 	([ -f "$progsfile" ] && cp "$progsfile" /tmp/progs.csv) || curl -Ls "$progsfile" | sed '/^#/d' > /tmp/progs.csv
 	total=$(wc -l < /tmp/progs.csv)
@@ -134,15 +139,12 @@ installationloop() { \
 		esac
 	done < /tmp/progs.csv ;}
 
-getfilefromnet() { # Downloads $1 and places in $2
-	sudo -u "$name" curl --create-dirs -L "$1" -o "$2" >/dev/null 2>&1
-	}
-
 gitdf() { \
 	sudo -u "$name" /usr/bin/git --git-dir="/home/$name/.dotfiles/.gitdir" --work-tree="/home/$name/" $@ >/dev/null 2>&1
 	}
 
 getdotfiles() { #Downlaod dotfiles
+	dialog --title "SARBS Installation" --infobox "Dowloading dotfiles..." 3 27
 	sudo -u "$name" git clone --bare "https://github.com/suiljex/dotfiles/" "/home/$name/.dotfiles/.gitdir" >/dev/null 2>&1
 
 	gitdf checkout --force
@@ -216,10 +218,15 @@ installationloop
 # Install the dotfiles in the user's home directory
 getdotfiles
 
+# Downlaod some files
+getfilefromnet "https://raw.githubusercontent.com/muennich/urxvt-perls/master/keyboard-select" "/home/$name/.config/urxvt/ext/keyboard-select"
+getfilefromnet "https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font" "/home/$name/.config/urxvt/ext/resize-font"
+
 # Most important command! Get rid of the beep!
 systembeepoff
 
 # Make zsh the default shell for the user.
+
 chsh -s /bin/zsh "$name" >/dev/null 2>&1
 sudo -u "$name" mkdir -p "/home/$name/.cache/zsh/"
 
@@ -227,10 +234,6 @@ sudo -u "$name" mkdir -p "/home/$name/.cache/zsh/"
 sudo -u "$name" mkdir -p "/home/$name/.config/wallpaper"
 # Add directory for local binaries
 sudo -u "$name" mkdir -p "/home/$name/.local/bin"
-
-# Downlaod some files
-getfilefromnet "https://raw.githubusercontent.com/muennich/urxvt-perls/master/keyboard-select" "/home/$name/.config/urxvt/ext/keyboard-select"
-getfilefromnet "https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font" "/home/$name/.config/urxvt/ext/resize-font"
 
 # dbus UUID must be generated for Artix runit.
 #dbus-uuidgen > /var/lib/dbus/machine-id
