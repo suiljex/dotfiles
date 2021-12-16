@@ -9,7 +9,8 @@ setopt interactive_comments
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
-mkdir --parents "$HOME/.cache/zsh"
+[ -d "$HOME/.cache/zsh" ] || echo "Directory: $HOME/.cache/zsh - does not exist "
+#mkdir --parents "$HOME/.cache/zsh"
 HISTFILE="$HOME/.cache/zsh/history"
 
 # Load aliases and shortcuts if existent.

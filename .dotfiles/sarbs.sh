@@ -221,6 +221,8 @@ sudo -u "$name" mkdir -p "/home/$name/.cache/zsh/"
 
 # Add directory for wallpapers
 sudo -u "$name" mkdir -p "/home/$name/.config/wallpaper"
+# Add directory for local binaries
+sudo -u "$name" mkdir -p "/home/$name/.local/bin"
 
 # dbus UUID must be generated for Artix runit.
 #dbus-uuidgen > /var/lib/dbus/machine-id
