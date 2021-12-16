@@ -62,8 +62,8 @@ A,betterlockscreen,"allows you to lock your computer, and quickly unlock with yo
 ,noto-fonts-emoji,"is an emoji font."
 ,noto-fonts-cjk,"font for our asian friends.
 ,noto-fonts-extra,"font for polybar."
+,ttf-font-awesome,"iconic font designed for Bootstrap."
 A,siji-git,"just another font."
-A,nerd-fonts-complete,"iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts."
 ,curl,"http client."
 ,zsh,"zoomer's shell."
 ,git,"the fast distributed version control system."
