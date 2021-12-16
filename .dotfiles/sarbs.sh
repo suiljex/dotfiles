@@ -134,7 +134,11 @@ installationloop() { \
 		esac
 	done < /tmp/progs.csv ;}
 
-gitdf() {
+getfilefromnet() { # Downloads $1 and places in $2
+	sudo -u "$name" curl --create-dirs -L "$1" -o "$2" >/dev/null 2>&1
+	}
+
+gitdf() { \
 	sudo -u "$name" /usr/bin/git --git-dir="/home/$name/.dotfiles/.gitdir" --work-tree="/home/$name/" $@ >/dev/null 2>&1
 	}
 
@@ -223,6 +227,10 @@ sudo -u "$name" mkdir -p "/home/$name/.cache/zsh/"
 sudo -u "$name" mkdir -p "/home/$name/.config/wallpaper"
 # Add directory for local binaries
 sudo -u "$name" mkdir -p "/home/$name/.local/bin"
+
+# Downlaod some files
+getfilefromnet "https://raw.githubusercontent.com/muennich/urxvt-perls/master/keyboard-select" "/home/$name/.config/urxvt/ext/keyboard-select"
+getfilefromnet "https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font" "/home/$name/.config/urxvt/ext/resize-font"
 
 # dbus UUID must be generated for Artix runit.
 #dbus-uuidgen > /var/lib/dbus/machine-id
