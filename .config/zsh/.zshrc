@@ -74,9 +74,6 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Make cursor move faster
-xset r rate 220 40
-
 # For zsh-autosuggestions plugin
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
