@@ -349,6 +349,11 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+click-right = exec $TERMINAL -e pulsemixer
+click-left = pamixer -t
+scroll-up = pamixer --allow-boost -i 5
+scroll-down = pamixer --allow-boost -d 5
+
 [module/alsa]
 type = internal/alsa
 
