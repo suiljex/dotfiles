@@ -13,4 +13,7 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 echo "---" | tee -a /tmp/polybar.log
 polybar main 2>&1 | tee -a /tmp/polybar.log & disown
 
+# Launch NetworkManager applet
+nm-applet &
+
 echo "Bars launched..."
