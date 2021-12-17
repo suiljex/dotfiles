@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	$TERMINAL
 
 # program launcher
 super + shift + d
@@ -19,7 +19,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 super + shift + r
-	urxvt -e htop
+	$TERMINAL -e htop
 
 #
 # bspwm hotkeys
