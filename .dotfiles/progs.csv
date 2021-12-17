@@ -8,6 +8,7 @@
 ,xorg-xprop,"is a tool for detecting window properties."
 ,xorg-xdpyinfo,"aids with resolution determination and screen recording."
 ,xorg-xbacklight,"enables changing screen brightness levels."
+,xorg-xsetroot,"is to change X to normal cursor."
 ,arandr,"allows the user to customize monitor arrangements."
 ,picom,"is for transparency and removing screen-tearing."
 ## Audio
