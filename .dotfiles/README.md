@@ -1,5 +1,5 @@
 # suiljex's dotfiles
-This dotfiles and rice are havily inspired with Luke's Smith [LARBS](https://larbs.xyz/) project
+These dotfiles and rice are heavily inspired by Luke Smith's [LARBS](https://larbs.xyz/) project
 
 ## Installation
 On an Arch-based distribution as root, run the following:
