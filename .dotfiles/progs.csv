@@ -23,7 +23,8 @@
 ,rxvt-unicode,"is a terminal emulator."
 ,feh,"sets the wallpaper."
 ,unclutter,"hides an inactive mouse."
-,network-manager-applet,"is an applet for managing network connections."
+,networkmanager,"is a network connection manager and user applications."
+#,network-manager-applet,"is an applet for managing network connections."
 A,polybar,"serves as the modular status bar."
 A,betterlockscreen,"allows you to lock your computer, and quickly unlock with your password."
 ## Filesystem
