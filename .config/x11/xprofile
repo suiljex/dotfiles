@@ -16,7 +16,7 @@ feh --no-fehbg --bg-fill --randomize ${WALLPAPER_DIR}/*
 unset WALLPAPER_DIR
 
 #autostart="mpd xcompmgr dunst unclutter pipewire"
-autostart="mpd picom unclutter pipewire"
+autostart="mpd picom unclutter pipewire dunst"
 
 for program in $autostart; do
   pidof -s "$program" || setsid -f "$program"
