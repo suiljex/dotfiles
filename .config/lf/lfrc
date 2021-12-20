@@ -36,7 +36,8 @@ cmd extract ${{
 	printf "%s\n\t" "$fx"
 	printf "extract?[y/N]"
 	read ans
-	[ $ans = "y" ] && aunpack $fx
+	[ $ans = "y" ] && aunpack $fx &&
+	notify-send "🗃️ File(s) extracted." "File(s) extracted from $fx."
 }}
 
 cmd delete ${{
@@ -45,14 +46,15 @@ cmd delete ${{
 	printf "%s\n\t" "$fx"
 	printf "delete?[y/N]"
 	read ans
-	[ $ans = "y" ] && rm -rf -- $fx
+	[ $ans = "y" ] && rm -rf -- $fx &&
+	notify-send "❌ File(s) deleted." "File(s) deleted: $fx"
 }}
 
 cmd moveto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Move to where?"
-	dest="$(find $HOME 2> /dev/null | fzf)" &&
+	dest="$(find $HOME -type d 2> /dev/null | fzf)" &&
 	for x in $fx; do
 		eval mv -iv \"$x\" \"$dest\"
 	done &&
@@ -63,7 +65,7 @@ cmd copyto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Copy to where?"
-	dest="$(find $HOME 2> /dev/null | fzf)" &&
+	dest="$(find $HOME -type d 2> /dev/null | fzf)" &&
 	for x in $fx; do
 		eval cp -ivr \"$x\" \"$dest\"
 	done &&
