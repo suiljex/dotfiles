@@ -127,6 +127,10 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# dynamic gap resizing
+super + {less,greater}
+	bspc config -d focused window_gap "$(($(bspc config -d focused window_gap) {-,+} 3))"
+
 # volume control
 super + {_,shift + }minus
 	pamixer --allow-boost -d {3, 15}
