@@ -488,6 +488,8 @@ exec = $HOME/.config/polybar/scripts/sb-forecast
 interval = 600
 format-underline = #16bde0
 
+click-left = exec $TERMINAL -e less $HOME/.local/share/weatherreport
+
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
