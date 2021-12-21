@@ -29,9 +29,8 @@ For installing Arch with btrfs, we need to make 2 minimum partitions
 
 You also might want to create `/swap` partition
 
-If you use only one drive I suggest this partitioning scheme:
+If you use only one drive I suggest this layout (GUID Partition Table):
 
-(gpt)
 |       dev|     size|    fs|         type| mount
 |----------|---------|------|-------------|------
 | /dev/sda1| 1024 KiB|   raw|    BIOS boot|
@@ -251,14 +250,18 @@ Now to recreate the image:
 mkinitcpio -p linux
 ```
 
-Replace linux with linux-lts if you installed the lts kernel
+Replace `linux` with `linux-lts` if you installed the lts kernel
 
 ## Step 16: Installing GRUB
 
 Installing grub:
 
 ``` sh
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id = Arch
+# For UEFI
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Arch
+
+# For Legacy BIOS
+grub-install /dev/sda
 ```
 
 Now to generate the configuration file:
