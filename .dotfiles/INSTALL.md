@@ -1,5 +1,7 @@
 # Arch Linux with BTRFS Installation
 
+[Source](https://www.nishantnadkarni.tech/posts/arch_installation/)
+
 ## Step 1: Download Arch Linux and Prepare Installation Medium
 
 Download the latest Arch Linux ISO from [archlinux.org](https://archlinux.org/download/)
