@@ -86,18 +86,18 @@ umount /mnt
 Now to mount these partitions:
 
 ``` sh
-mount -o noatime,commit=120,compress=zstd,subvol=@ /dev/sda4 /mnt
+mount -o noatime,compress=zstd:1,subvol=@ /dev/sda4 /mnt
 
 # You need to manually create folder to mount the other subvolumes at
 mkdir /mnt/{boot,home,var,opt,tmp,.snapshots}
 
-mount -o noatime,commit=120,compress=zstd,subvol=@home /dev/sda4 /mnt/home
+mount -o noatime,compress=zstd:1,subvol=@home /dev/sda4 /mnt/home
 
-mount -o noatime,commit=120,compress=zstd,subvol=@opt /dev/sda4 /mnt/opt
+mount -o noatime,compress=zstd:1,subvol=@opt /dev/sda4 /mnt/opt
 
-mount -o noatime,commit=120,compress=zstd,subvol=@tmp /dev/sda4 /mnt/tmp
+mount -o noatime,compress=zstd:1,subvol=@tmp /dev/sda4 /mnt/tmp
 
-mount -o noatime,commit=120,compress=zstd,subvol=@.snapshots /dev/sda4 /mnt/.snapshots
+mount -o noatime,compress=zstd:1,subvol=@.snapshots /dev/sda4 /mnt/.snapshots
 
 mount -o subvol=@var /dev/sda4 /mnt/var
 
