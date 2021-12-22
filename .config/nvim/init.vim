@@ -146,6 +146,20 @@ function! ToggleHiddenAll()
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
+" Make an undo directory if it does not exist
+if !isdirectory($HOME . "/.cache/nvim/undo")
+    call mkdir($HOME . "/.cache/nvim/undo", "p")
+endif
+set undodir=~/.cache/nvim/undo " Set the undo directory
+set undofile " Turn on persistent undo
+set undoreload=10000
+
+set backup
+if !isdirectory($HOME . "/.cache/nvim/backup")
+    call mkdir($HOME . "/.cache/nvim/backup", "p")
+endif
+set backupdir=~/.cache/nvim/backup
+
 " airline fix for urxvt
 let g:airline_powerline_fonts = 0
 let g:airline_symbols_ascii = 1
