@@ -25,6 +25,7 @@
 ,unclutter,"hides an inactive mouse."
 ,dunst,"is a suckless notification system."
 ,libnotify,"is a library for sending desktop notifications."
+,udisks2,"is a Disk Management Service."
 ,networkmanager,"is a network connection manager and user applications."
 #,network-manager-applet,"is an applet for managing network connections."
 A,polybar,"serves as the modular status bar."

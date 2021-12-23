@@ -55,11 +55,12 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = NotoEmoji:scale=12
+font-4 = FontAwesome:size=9
 
 modules-left = bspwm i3 xwindow
 modules-center = mpd
 ;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = pulseaudio weather backlight wlan eth memory cpu temperature battery xkeyboard date powermenu
+modules-right = rofi-usb-mount pulseaudio weather backlight wlan eth memory cpu temperature battery xkeyboard date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -491,6 +492,14 @@ interval = 600
 format-underline = #16bde0
 
 click-left = exec $TERMINAL -e less $HOME/.local/share/weatherreport
+
+[module/rofi-usb-mount]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/rofi-usb-mount.sh --check
+tail = true
+click-left = $HOME/.config/polybar/scripts/rofi-usb-mount.sh --mount
+click-right = $HOME/.config/polybar/scripts/rofi-usb-mount.sh --umount
+click-middle = $HOME/.config/polybar/scripts/rofi-usb-mount.sh --umount-all
 
 [settings]
 screenchange-reload = true
