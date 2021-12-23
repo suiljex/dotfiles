@@ -18,20 +18,26 @@ usbcheck(){ \
 
 mountusb(){ \
     chosen=$(echo "$usbdrives" | $rofi_cmd -p "Mount which drive?" | awk '{print $1}')
-    mountpoint=$(udisksctl mount --no-user-interaction -b "$chosen" 2>/dev/null) && notify-send "💻 USB mounting" "$chosen mounted to $mountpoint" && exit 0
+    mountpoint=$(udisksctl mount --no-user-interaction -b "$chosen" 2>/dev/null) && \
+    notify-send "💻 USB mounting" "$chosen mounted to $mountpoint"
+    exit 0
 }
 
 umountusb(){ \
     chosen=$(echo "$mounteddrives" | $rofi_cmd -p "Unmount which drive?" | awk '{print $1}')
-    mountpoint=$(udisksctl unmount --no-user-interaction -b "$chosen" 2>/dev/null) && notify-send "💻 USB unmounting" "$chosen mounted" && exit 0
-    udisksctl power-off --no-user-interaction -b "$chosen"
+    mountpoint=$(udisksctl unmount --no-user-interaction -b "$chosen" 2>/dev/null) && \
+    udisksctl power-off --no-user-interaction -b "$chosen" && \
+    notify-send "💻 USB unmounting" "$chosen unmounted"
+    exit 0
 }
 
 umountall(){ \
     for chosen in $(echo $(lsblk -rpo "name,type,size,mountpoint" | grep $usb_re | awk '$2=="part"&&$4!=""{printf "%s\n",$1}')); do
-        udisksctl unmount --no-user-interaction -b "$chosen"
-        udisksctl power-off --no-user-interaction -b "$chosen"
+        udisksctl unmount --no-user-interaction -b "$chosen" && \
+        udisksctl power-off --no-user-interaction -b "$chosen" && \
+        notify-send "💻 USB unmounting" "$chosen unmounted"
     done
+    exit 0
 }
 
 
