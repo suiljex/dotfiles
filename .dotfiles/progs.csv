@@ -27,9 +27,9 @@
 ,libnotify,"is a library for sending desktop notifications."
 ,udisks2,"is a Disk Management Service."
 ,networkmanager,"is a network connection manager and user applications."
-#,network-manager-applet,"is an applet for managing network connections."
 A,polybar,"serves as the modular status bar."
 A,betterlockscreen,"allows you to lock your computer, and quickly unlock with your password."
+#A,bsp-layout,"is a dynamic layout management scirpts for bspwm."
 ## Filesystem
 ,dosfstools,"allows your computer to access dos-like filesystems."
 ,exfat-utils,"allows management of FAT drives."
