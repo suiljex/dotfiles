@@ -14,8 +14,11 @@
 ## Audio
 ,pipewire,"is the audio system."
 ,pipewire-pulse,"gives pipewire compatibility with PulseAudio programs."
-,pulsemixer,"is an audio controller."
+,pipewire-alsa,"gives pipewire compatibility with Alsa programs."
+,pipewire-jack,"gives pipewire compatibility with JACK programs."
 ,pamixer,"is a command-line audio interface."
+,pulsemixer,"is an audio controller."
+,helvum,"is a GTK patchbay for PipeWire."
 ## WM
 ,bspwm,"is the window manager."
 ,sxhkd,"is the key mapper."
