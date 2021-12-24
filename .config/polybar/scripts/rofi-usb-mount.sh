@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_cmd='rofi -dmenu show run -theme Monokai -lines 5 -opacity "85" -bw 0 -width 30 -padding 20 -i'
+rofi_cmd='rofi -dmenu show run -lines 5 -opacity "85" -bw 0 -width 30 -padding 20 -i'
 usb_re='sd[b-z]'
 
 usbcheck(){ \
