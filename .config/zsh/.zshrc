@@ -15,6 +15,7 @@ HISTFILE="$HOME/.cache/zsh/history"
 setopt  appendhistory     #Append history to the history file (no overwriting)
 setopt  sharehistory      #Share history across terminals
 setopt  incappendhistory  #Immediately append to the history file, not just when a term is killed
+setopt  extendedhistory   #Record timestamp of command in HISTFILE
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
