@@ -60,7 +60,7 @@ font-4 = FontAwesome:size=9
 modules-left = bspwm i3 xwindow
 modules-center = mpd
 ;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = rofi-usb-mount pulseaudio weather backlight wlan eth memory cpu temperature battery xkeyboard date powermenu
+modules-right = rofi-usb-mount pulseaudio weather wlan eth memory cpu temperature battery xkeyboard date powermenu
 
 tray-position = right
 tray-padding = 2
