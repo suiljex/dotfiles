@@ -118,13 +118,13 @@ The mountpoints show the last subvolume that you mounted.
 For intel CPUs:
 
 ``` sh
-pacstrap /mnt base linux linux-firmware nano intel-ucode btrfs-progs
+pacstrap /mnt base linux linux-firmware nano btrfs-progs intel-ucode
 ```
 
 For AMD CPUs:
 
 ``` sh
-pacstrap /mnt base linux linux-firmware nano amd-ucode btrfs-progs
+pacstrap /mnt base linux linux-firmware nano btrfs-progs amd-ucode
 ```
 
 For VMs:
@@ -226,7 +226,7 @@ Enter your password twice to set root password.
 ## Step 14: Installing remaining essential packages
 
 ``` sh
-pacman -S grub grub-btrfs efibootmgr base-devel linux-headers networkmanager  wpa_supplicant dialog os-prober mtools dosfstools reflector git curl
+pacman -S grub grub-btrfs efibootmgr base-devel linux-headers networkmanager iwd dhcpcd bluez dialog os-prober mtools dosfstools reflector git curl
 ```
 
 ## Step 15: Adding btrfs module to mkinitcpio
@@ -278,8 +278,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
 ## If you installed bluez
 systemctl enable bluetooth
-## If you installed cups
-systemctl enable org.cups.cupsd
+## If you installed iwd
+systemctl enable iwd
 ```
 
 ## Step 18: Restarting into Arch
