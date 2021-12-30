@@ -244,14 +244,16 @@ sudo -u "$name" mkdir -p "/home/$name/.local/bin"
 # Use system notifications for Brave on Artix
 #echo "export \$(dbus-launch)" > /etc/profile.d/dbus.sh
 
-# Tap to click
+# Tap to click and inverted scrolling
 [ ! -f /etc/X11/xorg.conf.d/40-libinput.conf ] && printf 'Section "InputClass"
         Identifier "libinput touchpad catchall"
         MatchIsTouchpad "on"
         MatchDevicePath "/dev/input/event*"
         Driver "libinput"
-	# Enable left mouse button by tapping
-	Option "Tapping" "on"
+        # Enable left mouse button by tapping
+        Option "Tapping" "on"
+        # Enable MacOS like scrolling
+        Option "NaturalScrolling" "true"
 EndSection' > /etc/X11/xorg.conf.d/40-libinput.conf
 
 # This line, overwriting the `newperms` command above will allow the user to run
