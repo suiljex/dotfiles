@@ -226,7 +226,7 @@ Enter your password twice to set root password.
 ## Step 14: Installing remaining essential packages
 
 ``` sh
-pacman -S grub grub-btrfs efibootmgr base-devel linux-headers networkmanager iwd dhcpcd bluez dialog os-prober mtools dosfstools reflector git curl
+pacman -S grub grub-btrfs efibootmgr linux-headers networkmanager bluez os-prober dosfstools mtools git curl
 ```
 
 ## Step 15: Adding btrfs module to mkinitcpio
@@ -278,8 +278,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
 ## If you installed bluez
 systemctl enable bluetooth
-## If you installed iwd
-systemctl enable iwd
 ```
 
 ## Step 18: Restarting into Arch
