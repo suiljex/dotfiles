@@ -20,6 +20,13 @@ bspc rule -a Screenkey manage=off
 
 # Start polybar
 $HOME/.config/polybar/launch.sh
+
+# Set random wallperper
+WALLPAPER_DIR="${HOME}/.config/wallpaper"
+feh --no-fehbg --bg-fill --randomize ${WALLPAPER_DIR}/*
+#betterlockscreen --update ${WALLPAPER_DIR}
+unset WALLPAPER_DIR
+
 # Change cursor from X to arrow
 xsetroot -cursor_name left_ptr &
 
