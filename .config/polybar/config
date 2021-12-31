@@ -66,7 +66,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
+line-color = ${colors.color9}
 
 border-size = 4
 border-color = #00000000
@@ -173,7 +173,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${colors.color1}
 label = %{A1:exec $TERMINAL -e htop:}%percentage:2%%%{A}
 
 [module/memory]
@@ -181,7 +181,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${colors.color4}
 label = %{A1:exec $TERMINAL -e htop:}%percentage_used%%%{A}
 
 [module/wlan]
@@ -190,7 +190,7 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.color13}
 label-connected = %{A1:exec $TERMINAL -e nmtui:}%essid% : %upspeed% : %downspeed%%{A}
 
 format-disconnected = <label-disconnected>
@@ -210,7 +210,7 @@ type = internal/network
 interface = ens33
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.color14}
 ;format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %{A1:exec $TERMINAL -e nmtui:}: %upspeed% : %downspeed%%{A}
@@ -232,7 +232,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = ${colors.color4}
 
 format = %{A3:exec notify-send "This Month" "$(cal --monday)":}<label>%{A}
 
@@ -278,7 +278,7 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.color11}
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -310,7 +310,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = ${colors.color1}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -356,7 +356,7 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 exec = $HOME/.config/polybar/scripts/sb-forecast
 interval = 60
-format-underline = #16bde0
+format-underline = ${colors.color12}
 
 click-left = exec $TERMINAL -e less $HOME/.local/share/weatherreport
 
