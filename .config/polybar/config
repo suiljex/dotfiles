@@ -113,7 +113,7 @@ height = 20
 
 modules-left = cpu memory temperature
 modules-center = xwindow
-modules-right = wlan eth
+modules-right = wifi eth
 
 tray-position = right
 tray-padding = 2

@@ -79,9 +79,9 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.color4}
 label = %{A1:exec $TERMINAL -e htop:}%percentage_used%%%{A}
 
-[module/wlan]
+[module/wifi]
 type = internal/network
-interface = wlp2s0
+interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
