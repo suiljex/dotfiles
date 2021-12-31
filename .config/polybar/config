@@ -91,7 +91,7 @@ modules-right = rofi-usb-mount pulseaudio weather wlan eth memory cpu temperatur
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
+tray-background = ${colors.background}
 
 wm-restack = bspwm
 
