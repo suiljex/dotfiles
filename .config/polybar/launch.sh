@@ -10,10 +10,15 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 # polybar-msg cmd quit
 
 # Launch bar "main"
-echo "---" | tee -a /tmp/polybar.log
-polybar main 2>&1 | tee -a /tmp/polybar.log & disown
+echo "---" | tee -a /tmp/polybar_top.log /tmp/polybar_bottom.log
+polybar top 2>&1 | tee -a /tmp/polybar_top.log & disown
+polybar bottom 2>&1 | tee -a /tmp/polybar_bottom.log & disown
 
 # Launch NetworkManager applet
 #nm-applet &
+
+# Remove gap
+#bspc config top_padding 0
+#bspc config bottom_padding 0
 
 echo "Bars launched..."
