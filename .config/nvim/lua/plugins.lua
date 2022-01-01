@@ -7,6 +7,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   exec 'packadd packer.nvim'
 end
 
+require 'plugins.config'
+
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Have packer manage itself
   use 'nvim-lua/popup.nvim'    -- An implementation of the Popup API from vim in Neovim
@@ -15,31 +17,15 @@ return require('packer').startup(function(use)
   use 'vim-airline/vim-airline'
   use {
     'kyazdani42/nvim-tree.lua',
-    setup = function() 
-      -- Disable nvim-tree icons
-      vim.g.nvim_tree_show_icons = {
-        folders = 0,
-        files = 0,
-        git = 0,
-        folder_arrows = 0,
-      }
-    end,
-    config = function() require'nvim-tree'.setup {} end,
+    setup = setup_nvim_tree,
+    config = config_nvim_tree,
   }
   use 'ap/vim-css-color'
 
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    config = function()
-      require('telescope').setup {
-        pickers = {
-          find_files = {
-            hidden = true
-          }
-        }
-      }
-    end,
+    config = config_telescope,
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
