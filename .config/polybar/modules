@@ -102,7 +102,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = ens33
+interface = enp0s25
 interval = 3.0
 
 format-connected-underline = ${colors.color14}
