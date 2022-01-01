@@ -36,3 +36,7 @@ map('n', '<C-t>', ':Term<CR>', { noremap = true })
 map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
 map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
+
+-- Telescope
+map("n", "<C-f>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", default_opts)
+map("n", "<C-t>", "<cmd>Telescope live_grep<cr>", default_opts)

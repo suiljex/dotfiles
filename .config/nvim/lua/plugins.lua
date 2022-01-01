@@ -8,8 +8,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use 'wbthomason/packer.nvim' -- Have packer manage itself
+  use 'nvim-lua/popup.nvim'    -- An implementation of the Popup API from vim in Neovim
+  use 'nvim-lua/plenary.nvim'  -- Useful lua functions used ny lots of plugins
 
   use 'vim-airline/vim-airline'
   use {
@@ -26,6 +27,20 @@ return require('packer').startup(function(use)
     config = function() require'nvim-tree'.setup {} end,
   }
   use 'ap/vim-css-color'
+
+  -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    config = function()
+      require('telescope').setup {
+        pickers = {
+          find_files = {
+            hidden = true
+          }
+        }
+      }
+    end,
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then

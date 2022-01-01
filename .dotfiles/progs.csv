@@ -79,6 +79,7 @@ A,task-spooler,"queues commands or files for download."
 ,w3m,"is a Text-based Web browser as well as pager."
 ,chafa,"is an Image-to-text converter supporting a wide range of symbols and palettes, transparency, animations, etc."
 ,rofi-emoji,"is a Rofi plugin for selecting emojis."
+,ripgrep,"is a search tool that combines the usability of ag with the raw speed of grep."
 ## ZSH plugins
 ,zsh-autosuggestions,"is a fish-like autosuggestions for zsh."
 ,zsh-completions,"is an additional completion definitions for zsh."
