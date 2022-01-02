@@ -17,4 +17,9 @@ telescope.setup {
       '--unrestricted',
     },
   },
+  pickers = {
+    find_files = {
+      hidden = true,
+    },
+  },
 }
