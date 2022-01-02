@@ -23,12 +23,18 @@ if not status_ok then
   return
 end
 
--- Have packer use a popup window
+-- Have packer use a popup window and ASCII symbols
 packer.init {
   display = {
     open_fn = function()
       return require("packer.util").float { border = "rounded" }
     end,
+    working_sym = '%', -- The symbol for a plugin being installed/updated
+    error_sym = 'x', -- The symbol for a plugin with an error in installation/updating
+    done_sym = 'v', -- The symbol for a plugin which has completed installation/updating
+    removed_sym = '-', -- The symbol for an unused plugin which was removed
+    moved_sym = '>', -- The symbol for a plugin which was moved (e.g. from opt to start)
+    header_sym = '=', -- The symbol for the header line in packer's display
   },
 }
 
@@ -48,8 +54,8 @@ return packer.startup(function(use)
   -- Colorschemes
   --use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use 'lunarvim/darkplus.nvim'
-  use 'folke/tokyonight.nvim'
-  use 'morhetz/gruvbox'
+  --use 'folke/tokyonight.nvim'
+  --use 'morhetz/gruvbox'
 
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then

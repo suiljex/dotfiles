@@ -83,7 +83,3 @@ opt.keymap = 'russian-jcukenwin'
 opt.iminsert = 0 -- Use EN on start (start > i)
 opt.imsearch = 0 -- Use EN on search (start > /)
 
--- airline fix for urxvt
-g.airline_powerline_fonts = 0
-g.airline_symbols_ascii = 1
-
