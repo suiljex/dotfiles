@@ -67,7 +67,7 @@ keymap('n', '<leader>c', ':nohl<CR>', opts)
 
 -- fast saving with <leader> and s
 keymap('n', '<leader>s', ':w<CR>', opts)
-keymap('i', '<leader>s', '<C-c>:w<CR>', opts)
+--keymap('i', '<leader>s', '<C-c>:w<CR>', opts)
 
 -- close all windows and exit from neovim
 keymap('n', '<leader>q', ':qa!<CR>', opts)
@@ -78,13 +78,8 @@ keymap("i", "jk", "<ESC>", opts)
 
 -- Applications & Plugins shortcuts:
 -- open Lexplorer
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
-
--- -- nvim-tree
--- keymap('n', '<C-n>', ':NvimTreeToggle<CR>', opts)       -- open/close
--- keymap('n', '<leader>r', ':NvimTreeRefresh<CR>', opts)  -- refresh
--- keymap('n', '<leader>n', ':NvimTreeFindFile<CR>', opts) -- search file
+keymap("n", "<leader>e", ":Vexplore 30<cr>", opts)
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>t", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)

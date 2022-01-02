@@ -44,8 +44,8 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'  -- Useful lua functions used ny lots of plugins
 
   use 'vim-airline/vim-airline'
-  --use 'kyazdani42/nvim-tree.lua'
 
+  -- Highlight color values
   use 'ap/vim-css-color'
 
   -- Colorschemes
@@ -65,20 +65,20 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use {
+    'neovim/nvim-lspconfig',            -- enable LSP
+    'williamboman/nvim-lsp-installer',  -- simple to use language server installer
+  }
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow"
-  use "nvim-treesitter/playground"
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
-  
+
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
     require("packer").sync()
