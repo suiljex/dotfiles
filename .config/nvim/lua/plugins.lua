@@ -1,5 +1,5 @@
 -- Plugin manager
-require 'plugins.manager'
+require 'plugins.packer'
 
 -- Configure plugins
 require 'plugins.nvim_tree'
