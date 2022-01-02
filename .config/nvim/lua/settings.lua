@@ -54,18 +54,15 @@ opt.relativenumber = true     -- set relative numbered lines
 opt.numberwidth = 4           -- number column width {default 4}
 opt.signcolumn = "yes"        -- always show the sign column, otherwise it would shift the text each time
 opt.wrap = false              -- display lines as one long line
-opt.showmode = true           -- if in Insert, Replace or Visual mode put a message on the last line.
+opt.showmode = false          -- if in Insert, Replace or Visual mode put a message on the last line.
 opt.showcmd = true            -- show (partial) command in the last line of the screen.
-opt.hlsearch = true            -- highlight all matches on previous search pattern
+opt.hlsearch = true           -- highlight all matches on previous search pattern
 opt.ruler = true              -- show the line and column number of the cursor position, separated by a comma.
 opt.scrolloff = 8             -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 8         -- minimal number of screen columns to keep to the left and to the right of the cursor
 --opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 
 opt.shortmess:append "c"
-
--- Colorscheme
-cmd [[colorscheme gruvbox]]
 
 -- remove whitespace on save
 cmd [[au BufWritePre * :%s/\s\+$//e]]
