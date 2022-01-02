@@ -38,7 +38,7 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'  -- Useful lua functions used ny lots of plugins
 
   use 'vim-airline/vim-airline'
-  use 'kyazdani42/nvim-tree.lua'
+  --use 'kyazdani42/nvim-tree.lua'
 
   use 'ap/vim-css-color'
 
@@ -46,8 +46,10 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope.nvim'
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
+  --use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  use 'lunarvim/darkplus.nvim'
+  use 'folke/tokyonight.nvim'
+  use 'morhetz/gruvbox'
 
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
