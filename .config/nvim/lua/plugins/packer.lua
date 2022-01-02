@@ -48,9 +48,6 @@ return packer.startup(function(use)
 
   use 'ap/vim-css-color'
 
-  -- Telescope
-  use 'nvim-telescope/telescope.nvim'
-
   -- Colorschemes
   use 'lunarvim/darkplus.nvim'
 
@@ -71,6 +68,17 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "p00f/nvim-ts-rainbow"
+  use "nvim-treesitter/playground"
+
+  -- Telescope
+  use 'nvim-telescope/telescope.nvim'
+  
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
     require("packer").sync()
