@@ -84,6 +84,8 @@ keymap("n", "<leader>e", ":Vexplore 30<cr>", opts)
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>t", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
 
+-- open/close Trouble
+keymap("n", "gt", "<cmd>:TroubleToggle<cr>", opts)
 
 -- Tabs (barbar)
 -- Move to previous/next
