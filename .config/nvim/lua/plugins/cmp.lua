@@ -45,6 +45,35 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+-- Kind ascii chars
+local kind_ascii = {
+  Text = "TXT",
+  Method = "Method",
+  Function = "Func",
+  Constructor = "Constr",
+  Field = "Field",
+  Variable = "Var",
+  Class = "Class",
+  Interface = "Intrfs",
+  Module = "Mod",
+  Property = "Prop",
+  Unit = "Unit",
+  Value = "Val",
+  Enum = "Enum",
+  Keyword = "KeyW",
+  Snippet = "Snipp",
+  Color = "Color",
+  File = "File",
+  Reference = "Ref",
+  Folder = "Fold",
+  EnumMember = "EnumMem",
+  Constant = "Const",
+  Struct = "Struct",
+  Event = "Event",
+  Operator = "Oper",
+  TypeParameter = "TParam",
+}
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -95,11 +124,10 @@ cmp.setup {
     }),
   },
   formatting = {
-    --fields = { "kind", "abbr", "menu" },
-    fields = { "abbr", "menu" },
+    fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      vim_item.kind = string.format("%s", kind_ascii[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
