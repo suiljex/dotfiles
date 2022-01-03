@@ -2,10 +2,10 @@
 require 'plugins.packer'
 
 -- Configure plugins
-require 'plugins.lualine'
-require 'plugins.cmp'
-require 'plugins.lsp'
-require 'plugins.telescope'
-require 'plugins.treesitter'
-require 'plugins.trouble_toggle'
-require 'plugins.barbar'
+--require 'plugins.lualine'.setup()
+--require 'plugins.cmp'.setup()
+--require 'plugins.lsp'.setup()
+--require 'plugins.telescope'.setup()
+--require 'plugins.treesitter'.setup()
+--require 'plugins.trouble_toggle'.setup()
+--require 'plugins.barbar'.setup()

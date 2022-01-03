@@ -1,9 +1,12 @@
-local cmp_status_ok, lualine = pcall(require, "lualine")
-if not cmp_status_ok then
-  return
-end
+local M = {}
 
-require('lualine').setup {
+M.setup = function()
+  local cmp_status_ok, lualine = pcall(require, "lualine")
+  if not cmp_status_ok then
+    return
+  end
+
+  lualine.setup {
     options = {
       icons_enabled = false,
       theme = 'onedark',
@@ -31,3 +34,6 @@ require('lualine').setup {
     tabline = {},
     extensions = {}
   }
+end
+
+return M
