@@ -104,7 +104,7 @@ return packer.startup(function(use)
     config = function() require "plugins.telescope" end,
   }
 
- -- Autopairs, integrates with both cmp and treesitter
+  -- Autopairs, integrates with both cmp and treesitter
   use {
     "windwp/nvim-autopairs",
     requires = {
@@ -112,6 +112,12 @@ return packer.startup(function(use)
       "hrsh7th/nvim-cmp",
     },
     config = function() require "plugins.auto_pairs" end,
+  }
+
+  -- Git
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function() require "plugins.gitsigns" end,
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
