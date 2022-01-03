@@ -46,7 +46,7 @@ return packer.startup(function(use)
   -- Status bar
   use {
     "nvim-lualine/lualine.nvim",
-    config = function() require "plugins.lualine".setup() end,
+    config = function() require "plugins.lualine" end,
   }
 
   -- Highlight color values
@@ -58,7 +58,7 @@ return packer.startup(function(use)
   -- Tab bar
   use {
     "romgrk/barbar.nvim",
-    config = function() require "plugins.barbar".setup() end,
+    config = function() require "plugins.barbar" end,
   }
 
   -- cmp plugins
@@ -76,32 +76,32 @@ return packer.startup(function(use)
         requires = "rafamadriz/friendly-snippets", -- a bunch of snippets to use
       },
     },
-    config = function() require "plugins.cmp".setup() end,
+    config = function() require "plugins.cmp" end,
   }
 
   -- LSP
   use {
     "williamboman/nvim-lsp-installer",  -- simple to use language server installer
     requires = "neovim/nvim-lspconfig", -- enable LSP
-    config = function() require "plugins.lsp".setup() end,
+    config = function() require "plugins.lsp" end,
   }
 
   use {
     "folke/trouble.nvim",  -- Enable TroubleToggle command
-    config = function() require "plugins.trouble_toggle".setup() end,
+    config = function() require "plugins.trouble_toggle" end,
   }
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    config = function() require "plugins.treesitter".setup() end,
+    config = function() require "plugins.treesitter" end,
     run = ":TSUpdate",
   }
 
   -- Telescope
   use {
     "nvim-telescope/telescope.nvim",
-    config = function() require "plugins.telescope".setup() end,
+    config = function() require "plugins.telescope" end,
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
