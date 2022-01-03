@@ -136,6 +136,18 @@ return packer.startup(function(use)
     config = function() require "plugins.nvim_tree" end,
   }
 
+  -- Debugger
+  use {
+    "mfussenegger/nvim-dap",
+    config = function() require "plugins.nvim_dap" end,
+  }
+
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = "mfussenegger/nvim-dap",
+    config = function() require "plugins.nvim_dap_ui" end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
     require("packer").sync()
