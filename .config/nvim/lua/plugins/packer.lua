@@ -130,6 +130,12 @@ return packer.startup(function(use)
     config = function() require "plugins.comment" end,
   }
 
+  -- NVIM Tree file explorer
+  use {
+    "kyazdani42/nvim-tree.lua",
+    config = function() require "plugins.nvim_tree" end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
     require("packer").sync()

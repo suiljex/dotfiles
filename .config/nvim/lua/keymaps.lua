@@ -77,8 +77,8 @@ keymap("i", "jk", "<ESC>", opts)
 
 
 -- Applications & Plugins shortcuts:
--- open Lexplorer
-keymap("n", "<leader>e", ":Vexplore 30<cr>", opts)
+-- Nvimtree
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
