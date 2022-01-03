@@ -104,6 +104,16 @@ return packer.startup(function(use)
     config = function() require "plugins.telescope" end,
   }
 
+ -- Autopairs, integrates with both cmp and treesitter
+  use {
+    "windwp/nvim-autopairs",
+    requires = {
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function() require "plugins.auto_pairs" end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
     require("packer").sync()
