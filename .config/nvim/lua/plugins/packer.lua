@@ -70,6 +70,10 @@ return packer.startup(function(use)
     'williamboman/nvim-lsp-installer',  -- simple to use language server installer
   }
 
+  use {
+    "folke/trouble.nvim",  -- Enable TroubleToggle command
+  }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",

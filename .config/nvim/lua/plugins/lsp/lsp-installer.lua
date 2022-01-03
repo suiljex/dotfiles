@@ -41,7 +41,7 @@ if not status_ok then
   return
 end
 
-lsp_servers = {"clangd", "pyright", "sumneko_lua"}
+lsp_servers = {"clangd", "sumneko_lua"}
 
 for _, lsp_server in ipairs(lsp_servers) do
   local server_available, requested_server = lsp_installer_servers.get_server(lsp_server)
