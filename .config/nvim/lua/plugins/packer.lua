@@ -51,6 +51,9 @@ return packer.startup(function(use)
   -- Colorschemes
   use 'lunarvim/darkplus.nvim'
 
+  -- Tab bar
+  use 'romgrk/barbar.nvim'
+
   -- cmp plugins
   use "hrsh7th/nvim-cmp"         -- The completion plugin
   use "hrsh7th/cmp-buffer"       -- buffer completions
