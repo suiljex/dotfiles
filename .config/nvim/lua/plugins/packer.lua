@@ -120,6 +120,16 @@ return packer.startup(function(use)
     config = function() require "plugins.gitsigns" end,
   }
 
+  -- Comments plugin
+  use {
+    "numToStr/Comment.nvim", -- Easily comment stuff
+    requires = {
+      "nvim-treesitter/nvim-treesitter",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
+    config = function() require "plugins.comment" end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
     require("packer").sync()
