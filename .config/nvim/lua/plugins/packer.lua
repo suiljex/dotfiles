@@ -91,6 +91,13 @@ return packer.startup(function(use)
     config = function() require "plugins.trouble_toggle" end,
   }
 
+  -- NULL-LS
+  use {
+    "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+    requires = "neovim/nvim-lspconfig", -- enable LSP
+    config = function() require "plugins.null_ls" end,
+  }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
