@@ -114,7 +114,7 @@ Keymaps files:
 | normal | `<leader>dc` | `:lua require"dap".terminate()<CR>`                                                     | Terminate program       |
 | normal | `<leader>dk` | `:lua require"dap".up()<CR>`                                                            |                         |
 | normal | `<leader>dj` | `:lua require"dap".down()<CR>`                                                          |                         |
-| normal | `<leader>dr` | `:lua require"dap".repl.toggle({}| "vsplit")<CR><C-w>l`                                 |                         |
+| normal | `<leader>dr` | `:lua require"dap".repl.toggle({}, "vsplit")<CR><C-w>l`                                 |                         |
 | normal | `<leader>di` | `:lua require"dap.ui.widgets".hover()<CR>`                                              |                         |
 | normal | `<leader>d?` | `:lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>` |                         |
 | normal | `<leader>db` | `:lua require"dapui".toggle()<CR>`                                                      | Open/Close debugging UI |
@@ -240,7 +240,7 @@ Refactoring:
 
 | Mode   | Key  | Action                                                          | Comment                         |
 |--------|------|-----------------------------------------------------------------|---------------------------------|
-| normal | `gl` | `<cmd>lua vim.diagnostic.open_float(0| { scope = 'line'})<CR>`  | Show line diagnostic            |
+| normal | `gl` | `<cmd>lua vim.diagnostic.open_float(0, { scope = 'line'})<CR>`  | Show line diagnostic            |
 | normal | `[d` | `<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>` | Goto previous point of interest |
 | normal | `]d` | `<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>` | Goto next point of interest     |
 
