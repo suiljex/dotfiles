@@ -26,8 +26,8 @@ URxvt.keysym.Control-Down: \033[1;5B
 URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Left: \033[1;5D
 !! Keybinds for font resize
-URxvt.keysym.Control-j: resize-font:smaller
-URxvt.keysym.Control-k: resize-font:bigger
+!URxvt.keysym.Control-j: resize-font:smaller
+!URxvt.keysym.Control-k: resize-font:bigger
 
 !! Extensions
 URxvt*perl-lib: .config/urxvt/ext

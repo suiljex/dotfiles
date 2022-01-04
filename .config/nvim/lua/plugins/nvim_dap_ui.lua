@@ -43,3 +43,9 @@ dapui.setup({
   },
   windows = { indent = 1 },
 })
+
+-- DAP UI keymaps
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap("n", "<leader>db", ":lua require'dapui'.toggle()<CR>", opts)

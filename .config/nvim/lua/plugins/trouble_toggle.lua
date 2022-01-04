@@ -17,3 +17,9 @@ trouble.setup {
   },
   use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 }
+
+-- Trouble Toggle keymaps
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap("n", "gt", "<cmd>:TroubleToggle<cr>", opts)

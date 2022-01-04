@@ -82,6 +82,3 @@ opt.undofile = true     -- Turn on persistent undo
 opt.keymap = 'russian-jcukenwin'
 opt.iminsert = 0 -- Use EN on start (start > i)
 opt.imsearch = 0 -- Use EN on search (start > /)
-
--- Add command to Nuke nvim
-cmd [[ command! NukeNVIM execute '!rm -rf "$HOME/.local/share/nvim" "$HOME/.cache/nvim" "$HOME/.config/nvim/plugin"' ]]
