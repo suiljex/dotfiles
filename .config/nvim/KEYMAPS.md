@@ -246,8 +246,9 @@ Refactoring:
 
 #### Refactoring
 
-| Mode   | Key          | Action                                   | Comment       |
-|--------|--------------|------------------------------------------|---------------|
-| normal | `<leader>rn` | `<cmd>lua vim.lsp.buf.rename()<CR>`      | Rename symbol |
-| normal | `<leader>ca` | `<cmd>lua vim.lsp.buf.code_action()<CR>` | Code action   |
-| normal | `<leader>l`  | `<cmd>lua vim.lsp.buf.formatting()<CR>`  | Reformat code |
+| Mode   | Key          | Action                                             | Comment                    |
+|--------|--------------|----------------------------------------------------|----------------------------|
+| normal | `<leader>rn` | `<cmd>lua vim.lsp.buf.rename()<CR>`                | Rename symbol              |
+| normal | `<leader>ca` | `<cmd>lua vim.lsp.buf.code_action()<CR>`           | Code action                |
+| normal | `<leader>l`  | `<cmd>lua vim.lsp.buf.formatting()<CR>`            | Reformat code              |
+| visual | `<leader>k`  | `<esc><cmd>lua vim.lsp.buf.range_formatting()<CR>` | Reformat code in selection |
