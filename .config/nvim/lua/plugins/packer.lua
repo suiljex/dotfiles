@@ -105,6 +105,18 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
 
+  -- Debugger
+  use {
+    "mfussenegger/nvim-dap",
+    config = function() require "plugins.nvim_dap" end,
+  }
+
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = "mfussenegger/nvim-dap",
+    config = function() require "plugins.nvim_dap_ui" end,
+  }
+
   -- Telescope
   use {
     "nvim-telescope/telescope.nvim",
@@ -137,22 +149,15 @@ return packer.startup(function(use)
     config = function() require "plugins.comment" end,
   }
 
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function() require "plugins.indent_blankline" end,
+  }
+
   -- NVIM Tree file explorer
   use {
     "kyazdani42/nvim-tree.lua",
     config = function() require "plugins.nvim_tree" end,
-  }
-
-  -- Debugger
-  use {
-    "mfussenegger/nvim-dap",
-    config = function() require "plugins.nvim_dap" end,
-  }
-
-  use {
-    "rcarriga/nvim-dap-ui",
-    requires = "mfussenegger/nvim-dap",
-    config = function() require "plugins.nvim_dap_ui" end,
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
