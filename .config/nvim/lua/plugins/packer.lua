@@ -50,7 +50,10 @@ return packer.startup(function(use)
   }
 
   -- Highlight color values
-  use "ap/vim-css-color"
+  use {
+    "norcalli/nvim-colorizer.lua",
+    config = function() require "plugins.nvim_colorizer" end,
+  }
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
@@ -120,6 +123,7 @@ return packer.startup(function(use)
   -- Telescope
   use {
     "nvim-telescope/telescope.nvim",
+    requires = "nvim-lua/plenary.nvim",
     config = function() require "plugins.telescope" end,
   }
 
