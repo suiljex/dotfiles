@@ -252,3 +252,17 @@ Refactoring:
 | normal | `<leader>ca` | `<cmd>lua vim.lsp.buf.code_action()<CR>`           | Code action                |
 | normal | `<leader>l`  | `<cmd>lua vim.lsp.buf.formatting()<CR>`            | Reformat code              |
 | visual | `<leader>k`  | `<esc><cmd>lua vim.lsp.buf.range_formatting()<CR>` | Reformat code in selection |
+
+### Comment
+
+Keymaps file: `lua/plugins/comment.lua`
+
+#### Comment keymaps
+
+| Mode           | Key   | Action | Comment                        |
+|----------------|-------|--------|--------------------------------|
+| normal, visual | `gcc` |        | Toggle line comment            |
+| normal, visual | `gbc` |        | Toggle block comment           |
+| normal, visual | `gcO` |        | Add comment on the line above  |
+| normal, visual | `gco` |        | Add comment on the line below  |
+| normal, visual | `gcA` |        | Add comment at the end of line |
