@@ -164,6 +164,13 @@ return packer.startup(function(use)
     config = function() require "plugins.nvim_tree" end,
   }
 
+  -- StartupTime analyzer
+  use {
+    "dstein64/vim-startuptime",
+    opt = true,
+    cmd = {"StartupTime"},
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
     require("packer").sync()
