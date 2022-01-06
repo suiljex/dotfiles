@@ -63,6 +63,7 @@ opt.sidescrolloff = 8         -- minimal number of screen columns to keep to the
 --opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 
 opt.shortmess:append "c"
+opt.shortmess:append "I"      -- disable wellcome screen
 
 -- remove whitespace on save
 cmd [[au BufWritePre * :%s/\s\+$//e]]
