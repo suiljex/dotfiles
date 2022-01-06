@@ -1,5 +1,6 @@
 local cmp_status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not cmp_status_ok then
+  vim.notify("Unable to load: " .. "nvim-treesitter.configs")
   return
 end
 

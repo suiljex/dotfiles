@@ -1,5 +1,6 @@
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
+  vim.notify("Unable to load: " .. "nvim-lsp-installer")
   return
 end
 
@@ -38,6 +39,7 @@ end)
 -- Install LSP servers
 local status_ok, lsp_installer_servers = pcall(require, "nvim-lsp-installer.servers")
 if not status_ok then
+  vim.notify("Unable to load: " .. "nvim-lsp-installer.servers")
   return
 end
 

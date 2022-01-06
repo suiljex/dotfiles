@@ -1,5 +1,6 @@
 local status_ok, dap = pcall(require, 'dap')
 if not status_ok then
+  vim.notify("Unable to load: " .. "dap")
   return
 end
 

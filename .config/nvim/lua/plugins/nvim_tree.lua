@@ -33,11 +33,13 @@ vim.g.nvim_tree_show_icons = {
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
+  vim.notify("Unable to load: " .. "nvim-tree")
   return
 end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
+  vim.notify("Unable to load: " .. "nvim-tree.config")
   return
 end
 

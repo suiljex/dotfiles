@@ -1,5 +1,6 @@
 local cmp_status_ok, lualine = pcall(require, "lualine")
 if not cmp_status_ok then
+  vim.notify("Unable to load: " .. "lualine")
   return
 end
 

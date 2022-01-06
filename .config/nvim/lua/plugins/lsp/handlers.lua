@@ -92,6 +92,7 @@ M.capabilities = capabilities
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
+  vim.notify("Unable to load: " .. "cmp_nvim_lsp")
   return M
 end
 

@@ -20,6 +20,7 @@ end
 -- Use a protected call so we don"t error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
+  vim.notify("Unable to load: " .. "packer")
   return
 end
 
@@ -29,7 +30,7 @@ end
 -- if fn.isdirectory(compiled_cache_dir) == 0 then
 --   fn.mkdir(compiled_cache_dir, 'p')
 -- end
---
+
 -- if not PACKER_BOOTSTRAP then
 --   cmd [[
 --     augroup load_cache
