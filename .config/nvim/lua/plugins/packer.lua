@@ -23,13 +23,13 @@ if not status_ok then
   return
 end
 
+-- Dirty hack to load heavy config files after nvim is already running
 local compiled_cache_dir = fn.expand('~/.cache/nvim/')
 local compiled_cache = fn.expand('~/.cache/nvim/packer_compiled.lua')
 if fn.isdirectory(compiled_cache_dir) == 0 then
   fn.mkdir(compiled_cache_dir, 'p')
 end
 
--- Dirty hack to load heavy config files after nvim is already running
 if not PACKER_BOOTSTRAP then
   cmd [[
     augroup load_cache

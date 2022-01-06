@@ -9,7 +9,7 @@ local keymap = vim.api.nvim_set_keymap
 local cmd = vim.cmd
 
 -- Add command to Nuke nvim
-cmd [[ command! NukeNVIM execute '!rm -rf "$HOME/.local/share/nvim" "$HOME/.cache/nvim" "$HOME/.config/nvim/plugin"' ]]
+cmd [[ command! NukeNVIM execute '!rm -rf "$HOME/.local/share/nvim" "$HOME/.cache/nvim" "$HOME/.config/nvim/plugin/packer_compiled.lua"' ]]
 
 -- remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
