@@ -24,20 +24,20 @@ if not status_ok then
 end
 
 -- Dirty hack to load heavy config files after nvim is already running
-local compiled_cache = fn.expand('~/.cache/nvim/packer_compiled.lua')
-local compiled_cache_dir = fn.fnamemodify(compiled_cache, ":p:h")
-if fn.isdirectory(compiled_cache_dir) == 0 then
-  fn.mkdir(compiled_cache_dir, 'p')
-end
-
-if not PACKER_BOOTSTRAP then
-  cmd [[
-    augroup load_cache
-      autocmd!
-      autocmd VimEnter * :PackerCompile
-    augroup END
-  ]]
-end
+-- local compiled_cache = fn.expand('~/.cache/nvim/packer_compiled.lua')
+-- local compiled_cache_dir = fn.fnamemodify(compiled_cache, ":p:h")
+-- if fn.isdirectory(compiled_cache_dir) == 0 then
+--   fn.mkdir(compiled_cache_dir, 'p')
+-- end
+--
+-- if not PACKER_BOOTSTRAP then
+--   cmd [[
+--     augroup load_cache
+--       autocmd!
+--       autocmd VimEnter * :PackerCompile
+--     augroup END
+--   ]]
+-- end
 
 -- Have packer use a popup window and ASCII symbols
 packer.init {
@@ -52,7 +52,7 @@ packer.init {
     moved_sym = ">", -- The symbol for a plugin which was moved (e.g. from opt to start)
     header_sym = "=", -- The symbol for the header line in packer"s display
   },
-  compile_path = compiled_cache,
+  -- compile_path = compiled_cache,
 }
 
 return packer.startup(function(use)
