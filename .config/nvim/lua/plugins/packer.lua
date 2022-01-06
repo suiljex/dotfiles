@@ -23,6 +23,22 @@ if not status_ok then
   return
 end
 
+local compiled_cache_dir = fn.expand('~/.cache/nvim/')
+local compiled_cache = fn.expand('~/.cache/nvim/packer_compiled.lua')
+if fn.isdirectory(compiled_cache_dir) == 0 then
+  fn.mkdir(compiled_cache_dir, 'p')
+end
+
+-- Dirty hack to load heavy config files after nvim is already running
+if not PACKER_BOOTSTRAP then
+  cmd [[
+    augroup load_cache
+      autocmd!
+      autocmd VimEnter * :PackerCompile
+    augroup END
+  ]]
+end
+
 -- Have packer use a popup window and ASCII symbols
 packer.init {
   display = {
@@ -36,6 +52,7 @@ packer.init {
     moved_sym = ">", -- The symbol for a plugin which was moved (e.g. from opt to start)
     header_sym = "=", -- The symbol for the header line in packer"s display
   },
+  compile_path = compiled_cache,
 }
 
 return packer.startup(function(use)
@@ -61,6 +78,7 @@ return packer.startup(function(use)
   -- Tab bar
   use {
     "romgrk/barbar.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
     config = function() require "plugins.barbar" end,
   }
 
