@@ -41,6 +41,10 @@ telescope.setup {
 
     find_files = {
       hidden = true,
+      disable_devicons = true,
+    },
+    live_grep = {
+      disable_devicons = true,
     },
   },
   extensions = {
