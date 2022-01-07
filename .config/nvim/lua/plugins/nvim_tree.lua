@@ -2,7 +2,7 @@
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 vim.g.nvim_tree_icons = {
   default = "f",
-  symlink = "->",
+  symlink = "",
   git = {
     unstaged = "u",
     staged = "s",
@@ -19,10 +19,12 @@ vim.g.nvim_tree_icons = {
     open = "d",
     empty = "de",
     empty_open = "de",
-    symlink = "->",
-    symlink_open = "->",
+    symlink = "",
+    symlink_open = "",
   },
 }
+
+vim.g.nvim_tree_symlink_arrow = " -> "
 
 vim.g.nvim_tree_show_icons = {
   folders = 0,
