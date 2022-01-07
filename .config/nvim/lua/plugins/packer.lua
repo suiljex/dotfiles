@@ -183,6 +183,12 @@ return packer.startup(function(use)
     config = function() require "plugins.nvim_tree" end,
   }
 
+  -- Terminal
+  use {
+    "akinsho/toggleterm.nvim",
+    config = function() require "plugins.toggleterm" end,
+  }
+
   -- StartupTime analyzer
   use {
     "dstein64/vim-startuptime",

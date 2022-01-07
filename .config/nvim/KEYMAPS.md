@@ -266,3 +266,19 @@ Keymaps file: `lua/plugins/comment.lua`
 | normal, visual | `gcO` |        | Add comment on the line above  |
 | normal, visual | `gco` |        | Add comment on the line below  |
 | normal, visual | `gcA` |        | Add comment at the end of line |
+
+### Toggleterm
+
+Keymaps file: `lua/plugins/toggleterm.lua`
+
+#### Toggleterm keymaps
+
+| Mode     | Key     | Action             | Comment         |
+|----------|---------|--------------------|-----------------|
+| terminal | `<C-\>` |                    | Toggle terminal |
+| terminal | `<esc>` | `<C-\><C-n>`       | Close terminal  |
+| terminal | `jk`    | `<C-\><C-n>`       | Close terminal  |
+| terminal | `<C-h>` | `<C-\><C-n><C-W>h` | Move left       |
+| terminal | `<C-j>` | `<C-\><C-n><C-W>j` | Move down       |
+| terminal | `<C-k>` | `<C-\><C-n><C-W>k` | Move up         |
+| terminal | `<C-l>` | `<C-\><C-n><C-W>l` | Move right      |

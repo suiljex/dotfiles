@@ -81,6 +81,8 @@ A,task-spooler,"queues commands or files for download."
 ,rofi-emoji,"is a Rofi plugin for selecting emojis."
 ,ripgrep,"is a search tool that combines the usability of ag with the raw speed of grep."
 ,lldb,"is a high-performance debugger."
+,ncdu,"is a disk usage analyzer with an ncurses interface."
+,lazygit,"is a simple terminal UI for git commands."
 ## ZSH plugins
 ,zsh-autosuggestions,"is a fish-like autosuggestions for zsh."
 ,zsh-completions,"is an additional completion definitions for zsh."
