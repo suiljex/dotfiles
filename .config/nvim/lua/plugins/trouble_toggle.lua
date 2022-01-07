@@ -23,4 +23,4 @@ trouble.setup {
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "gt", "<cmd>:TroubleToggle<cr>", opts)
+keymap("n", "<leader>g", "<cmd>:TroubleToggle<cr>", opts)

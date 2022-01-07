@@ -190,9 +190,9 @@ Keymaps file: `lua/plugins/trouble_toggle.lua`
 
 #### Trouble keymaps
 
-| Mode   | Key  | Action                    | Comment            |
-|--------|------|---------------------------|--------------------|
-| normal | `gt` | `<cmd>:TroubleToggle<cr>` | Open/Close Trouble |
+| Mode   | Key         | Action                    | Comment            |
+|--------|-------------|---------------------------|--------------------|
+| normal | `<leader>g` | `<cmd>:TroubleToggle<cr>` | Open/Close Trouble |
 
 ### Nvimtree
 
@@ -227,14 +227,17 @@ Refactoring:
 
 #### Navigation and information display
 
-| Mode   | Key  | Action                                      | Comment             |
-|--------|------|---------------------------------------------|---------------------|
-| normal | `K`  | `<cmd>lua vim.lsp.buf.hover()<CR>`          | Show quick info     |
-| normal | `gd` | `<cmd>lua vim.lsp.buf.definition()<CR>`     | Goto definition     |
-| normal | `gD` | `<cmd>lua vim.lsp.buf.declaration()<CR>`    | Goto declaration    |
-| normal | `gi` | `<cmd>lua vim.lsp.buf.implementation()<CR>` | Goto implementation |
-| normal | `gr` | `<cmd>lua vim.lsp.buf.references()<CR>`     | Show references     |
-| normal | `gs` | `<cmd>lua vim.lsp.buf.signature_help()<CR>` | Show signature help |
+| Mode   | Key  | Action                                        | Comment                |
+|--------|------|-----------------------------------------------|------------------------|
+| normal | `K`  | `<cmd>lua vim.lsp.buf.hover()<CR>`            | Show quick info        |
+| normal | `gd` | `<cmd>lua vim.lsp.buf.definition()<CR>`       | Goto definition        |
+| normal | `gD` | `<cmd>lua vim.lsp.buf.declaration()<CR>`      | Goto declaration       |
+| normal | `gi` | `<cmd>lua vim.lsp.buf.implementation()<CR>`   | Goto implementation    |
+| normal | `gr` | `<cmd>lua vim.lsp.buf.references()<CR>`       | Show references        |
+| normal | `gs` | `<cmd>lua vim.lsp.buf.signature_help()<CR>`   | Show signature help    |
+| normal | `gw` | `<cmd>lua vim.lsp.buf.document_symbol()<CR>`  | Show document symbols  |
+| normal | `gW` | `<cmd>lua vim.lsp.buf.workspace_symbol()<CR>` | Show workspace symbols |
+| normal | `gt` | `<cmd>lua vim.lsp.buf.type_definition()<CR>`  | Show type definition   |
 
 #### Diagnostic
 
