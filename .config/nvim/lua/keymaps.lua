@@ -80,3 +80,6 @@ keymap("n", "<leader>q", ":qa!<CR>", opts)
 
 -- Press jk fast to Esc
 keymap("i", "jk", "<ESC>", opts)
+
+-- Toggle Spellcheck
+keymap("n", "<leader>ss", ":setlocal spell! spelllang=en_us,ru<CR>", opts)

@@ -80,12 +80,13 @@ Delete all plugins, history:
 
 #### Misc
 
-| Mode   | Key         | Action      | Comment                                               |
-|--------|-------------|-------------|-------------------------------------------------------|
-| visual | `p`         | `_dP`       | Preserve clipboard buffer when pasting in visual mode |
-| normal | `<leader>c` | `:nohl<CR>` | Clear search highlighting                             |
-| normal | `<leader>q` | `:qa!<CR>`  | Close all windows and exit from neovim                |
-| insert | `jk`        | `<ESC>`     | Press jk fast to Esc                                  |
+| Mode   | Key          | Action                                    | Comment                                               |
+|--------|--------------|-------------------------------------------|-------------------------------------------------------|
+| visual | `p`          | `_dP`                                     | Preserve clipboard buffer when pasting in visual mode |
+| normal | `<leader>c`  | `:nohl<CR>`                               | Clear search highlighting                             |
+| normal | `<leader>q`  | `:qa!<CR>`                                | Close all windows and exit from neovim                |
+| insert | `jk`         | `<ESC>`                                   | Press jk fast to Esc                                  |
+| normal | `<leader>ss` | `:setlocal spell! spelllang=en_us,ru<CR>` | Toggle spellcheck                                     |
 
 ### Debugger (dap + dapui)
 
