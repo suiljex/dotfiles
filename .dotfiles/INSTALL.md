@@ -115,7 +115,13 @@ The mountpoints show the last subvolume that you mounted.
 
 ## Step 7: Installing the base system
 
-For intel CPUs:
+For VMs:
+
+``` sh
+pacstrap /mnt base linux linux-firmware nano btrfs-progs
+```
+
+For Intel CPUs:
 
 ``` sh
 pacstrap /mnt base linux linux-firmware nano btrfs-progs intel-ucode
@@ -125,12 +131,6 @@ For AMD CPUs:
 
 ``` sh
 pacstrap /mnt base linux linux-firmware nano btrfs-progs amd-ucode
-```
-
-For VMs:
-
-``` sh
-pacstrap /mnt base linux linux-firmware nano btrfs-progs
 ```
 
 ## Step 8: Generate fstab
@@ -196,10 +196,10 @@ locale >> /etc/locale.conf
 We now need to set our Hostname
 
 ``` sh
-echo myhostname >> /etc/hostname
+echo <hostname> >> /etc/hostname
 ```
 
-Replace `myhostname` with whatever hostname you wish to set.
+Replace `<hostname>` with whatever hostname you wish to set.
 
 Now for the hostfiles:
 
@@ -212,7 +212,7 @@ Arch Wiki states the format for this:
 ``` text
 127.0.0.1   localhost
 ::1         localhost
-127.0.1.1   myhostname.localdomain  myhostname
+127.0.0.1   <hostname>.localdomain  <hostname>
 ```
 
 ## Step 13: Setting password for root user
