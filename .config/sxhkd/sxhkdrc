@@ -133,16 +133,16 @@ super + {less,greater}
 
 # volume control
 super + {_,shift + }minus
-	pamixer --allow-boost -d {5, 15}
+	pamixer --allow-boost -d {2, 10}
 super + {_,shift + }equal
-	pamixer --allow-boost -i {5, 15}
+	pamixer --allow-boost -i {2, 10}
 super + shift + m
 	pamixer -t
 
 XF86AudioLowerVolume
-	pamixer --allow-boost -d 5
+	pamixer --allow-boost -d 2
 XF86AudioRaiseVolume
-	pamixer --allow-boost -i 5
+	pamixer --allow-boost -i 2
 XF86AudioMute
 	pamixer -t
 
