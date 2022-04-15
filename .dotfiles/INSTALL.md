@@ -1,4 +1,4 @@
-# Arch Linux with BTRFS Installation
+# Arch Linux with encrypted BTRFS Installation
 
 [Source](https://www.nishantnadkarni.tech/posts/arch_installation/)
 
@@ -33,14 +33,28 @@ You also might want to create `/swap` partition
 
 If you use only one drive I suggest this layout (GUID Partition Table):
 
-|       dev|     size|    fs|         type| mount
-|----------|---------|------|-------------|------
-| /dev/sda1| 1024 KiB|   raw|    BIOS boot|
-| /dev/sda2|  512 MiB|  vfat|   EFI System| /boot
-| /dev/sda3|    4 GiB|  swap|   Linux Swap|
-| /dev/sda4|    <any>| btrfs| Linux x86-64| /
+| dev       | size     | fs     | type                | mount |
+|-----------|----------|--------|---------------------|-------|
+| /dev/sda1 | 1024 KiB | raw    | [ef02] BIOS boot    |       |
+| /dev/sda2 | 512 MiB  | vfat   | [ef00] EFI System   | /boot |
+| /dev/sda3 | 4 GiB    | swap   | [8200] Linux Swap   |       |
+| /dev/sda4 | <any>    | <none> | [8304] Linux x86-64 | /     |
 
-## Step 5: Creating Filesystems
+## Step 5: Create LUKS cryptocontainer
+
+Encrypt `/dev/sda4` partition with password
+
+``` sh
+cryptsetup luksFormat /dev/sda4
+```
+
+Unlock `/dev/sda4` and create `/dev/mapper/root` device
+
+``` sh
+cryptsetup luksOpen /dev/sda4 root
+```
+
+## Step 6: Creating Filesystems
 
 Now we must format the partitons with the respective file systems.
 
@@ -50,25 +64,25 @@ We need FAT32 file system for `/boot`:
 mkfs.vfat /dev/sda2
 ```
 
-For /swap partition, we need to make the partition and activate swap so:
+For `/swap` partition, we need to make the partition and activate swap so:
 
 ``` sh
 mkswap /dev/sda3
 swapon /dev/sda3
 ```
 
-For /(root), we need to make with the btrfs file system:
+For `/` (root), we need to make with the btrfs file system:
 
 ``` sh
-mkfs.btrfs /dev/sda4
+mkfs.btrfs /dev/mapper/root
 ```
 
-## Step 6: Mounting the partitions and subvolumes
+## Step 7: Mounting the partitions and subvolumes
 
 Now we must mount the partitions that we just created (except swap as it is not used to store static files).
 
 ``` sh
-mount /dev/sda4 /mnt
+mount /dev/mapper/root /mnt
 ```
 
 Now that we have mounted the root subvolume, we must create subvolumes for btrfs.
@@ -86,20 +100,20 @@ umount /mnt
 Now to mount these partitions:
 
 ``` sh
-mount -o noatime,compress=zstd:1,subvol=@ /dev/sda4 /mnt
+mount -o noatime,compress=zstd:1,subvol=@ /dev/mapper/root /mnt
 
 # You need to manually create folder to mount the other subvolumes at
 mkdir /mnt/{boot,home,var,opt,tmp,.snapshots}
 
-mount -o noatime,compress=zstd:1,subvol=@home /dev/sda4 /mnt/home
+mount -o noatime,compress=zstd:1,subvol=@home /dev/mapper/root /mnt/home
 
-mount -o noatime,compress=zstd:1,subvol=@opt /dev/sda4 /mnt/opt
+mount -o noatime,compress=zstd:1,subvol=@opt /dev/mapper/root /mnt/opt
 
-mount -o noatime,compress=zstd:1,subvol=@tmp /dev/sda4 /mnt/tmp
+mount -o noatime,compress=zstd:1,subvol=@tmp /dev/mapper/root /mnt/tmp
 
-mount -o noatime,compress=zstd:1,subvol=@.snapshots /dev/sda4 /mnt/.snapshots
+mount -o noatime,compress=zstd:1,subvol=@.snapshots /dev/mapper/root /mnt/.snapshots
 
-mount -o subvol=@var /dev/sda4 /mnt/var
+mount -o subvol=@var /dev/mapper/root /mnt/var
 
 # Mounting the boot partition at /boot folder
 mount /dev/sda2 /mnt/boot
@@ -111,9 +125,7 @@ Verify that you have mounted everything correctly:
 lsblk
 ```
 
-The mountpoints show the last subvolume that you mounted.
-
-## Step 7: Installing the base system
+## Step 8: Installing the base system
 
 For VMs:
 
@@ -133,7 +145,7 @@ For AMD CPUs:
 pacstrap /mnt base linux linux-firmware nano btrfs-progs amd-ucode
 ```
 
-## Step 8: Generate fstab
+## Step 9: Generate fstab
 
 After installation of all packages is done, we need to now generate the fstab. The fstab file is used to define how disk partitions, various other block devices, or remote filesystems should be mounted into the filesystem. Generate it using:
 
@@ -147,7 +159,45 @@ Verify fstab entries by:
 cat /mnt/etc/fstab
 ```
 
-## Step 9: Chroot into install
+## Step 10: Encrypt swap
+
+Disable swap
+
+``` sh
+swapoff /dev/sda3
+```
+
+Create small ext2 filesystem for storing swap LABEL
+
+``` sh
+mkfs.ext2 -L cryptswap /dev/sda3 1M
+```
+
+Edit `/mnt/etc/crypttab`
+
+``` sh
+nano /mnt/etc/crypttab
+```
+
+Add line:
+
+``` text
+swap LABEL=cryptswap /dev/urandom swap,offset=2048,cipher=aes-xts-plain64,size=512
+```
+
+Edit `/mnt/etc/fstab`
+
+``` sh
+nano /mnt/etc/fstab
+```
+
+Change swap line (UUID of `/dev/sda3` -> `/dev/mapper/swap`)
+
+``` text
+/dev/mapper/swap none swap defaults 0 0
+```
+
+## Step 11: Chroot into install
 
 Now you must enter your Arch install to set it up:
 
@@ -155,7 +205,7 @@ Now you must enter your Arch install to set it up:
 arch-chroot /mnt
 ```
 
-## Step 10: Seting timezone
+## Step 12: Setting timezone
 
 You set timezone using:
 
@@ -169,7 +219,7 @@ Now to sync hardware and system clock:
 hwclock --systohc
 ```
 
-## Step 11: Setting System Locale
+## Step 13: Setting System Locale
 
 You need to manually edit a file for this:
 
@@ -191,7 +241,7 @@ Now we set locale in locale.conf file:
 locale >> /etc/locale.conf
 ```
 
-## Step 12: Network Configuration
+## Step 14: Network Configuration
 
 We now need to set our Hostname
 
@@ -215,7 +265,7 @@ Arch Wiki states the format for this:
 127.0.0.1   <hostname>.localdomain  <hostname>
 ```
 
-## Step 13: Setting password for root user
+## Step 15: Setting password for root user
 
 ``` sh
 passwd
@@ -223,19 +273,19 @@ passwd
 
 Enter your password twice to set root password.
 
-## Step 14: Installing remaining essential packages
+## Step 16: Installing remaining essential packages
 
 ``` sh
 pacman -S grub grub-btrfs efibootmgr linux-headers networkmanager bluez os-prober dosfstools mtools git curl
 ```
 
-## Step 15: Adding btrfs module to mkinitcpio
+## Step 17: Adding btrfs module and encrypt hook to mkinitcpio
 
 ``` sh
 nano /etc/mkinitcpio.conf
 ```
 
-Add btrfs in `MODULES=()`
+Add `btrfs` in `MODULES=()`
 
 ``` text
 # MODULES
@@ -246,6 +296,12 @@ Add btrfs in `MODULES=()`
 MODULES=(btrfs)
 ```
 
+Add `encrypt` before `filesystems` in `HOOKS=(...)`
+
+``` text
+HOOKS=(... encrypt filesystems ...)
+```
+
 Now to recreate the image:
 
 ``` sh
@@ -254,7 +310,19 @@ mkinitcpio -p linux
 
 Replace `linux` with `linux-lts` if you installed the lts kernel
 
-## Step 16: Installing GRUB
+## Step 18: Installing GRUB
+
+Edit grub config to enable encryption
+
+``` sh
+nano /etc/default/grub
+```
+
+Add `cryptdevice` and `root` to `GRUB_CMDLINE_LINUX_DEFAULT`. You can find uuid of luks partition via `blkid` (/dev/sda4)
+
+``` text
+GRUB_CMDLINE_LINUX_DEFAULT="... cryptdevice=UUID=<uuid-of-luks-partition>:root root=/dev/mapper/root"
+```
 
 Installing grub:
 
@@ -272,7 +340,7 @@ Now to generate the configuration file:
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## Step 17: Enabling services
+## Step 19: Enabling services
 
 ``` sh
 systemctl enable NetworkManager
@@ -280,7 +348,7 @@ systemctl enable NetworkManager
 systemctl enable bluetooth
 ```
 
-## Step 18: Restarting into Arch
+## Step 20: Restarting into Arch
 
 ``` sh
 ## Exiting the installation
@@ -293,7 +361,7 @@ shutdown now
 reboot
 ```
 
-## Step 19: Installing SARBS
+## Step 21: Installing SARBS
 
 As root, run the following
 
