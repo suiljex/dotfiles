@@ -91,7 +91,6 @@ Now that we have mounted the root subvolume, we must create subvolumes for btrfs
 btrfs su cr /mnt/@
 btrfs su cr /mnt/@home
 btrfs su cr /mnt/@var
-btrfs su cr /mnt/@opt
 btrfs su cr /mnt/@tmp
 btrfs su cr /mnt/@.snapshots
 umount /mnt
@@ -103,11 +102,9 @@ Now to mount these partitions:
 mount -o noatime,compress=zstd:1,subvol=@ /dev/mapper/root /mnt
 
 # You need to manually create folder to mount the other subvolumes at
-mkdir /mnt/{boot,home,var,opt,tmp,.snapshots}
+mkdir /mnt/{boot,home,var,tmp,.snapshots}
 
 mount -o noatime,compress=zstd:1,subvol=@home /dev/mapper/root /mnt/home
-
-mount -o noatime,compress=zstd:1,subvol=@opt /dev/mapper/root /mnt/opt
 
 mount -o noatime,compress=zstd:1,subvol=@tmp /dev/mapper/root /mnt/tmp
 
